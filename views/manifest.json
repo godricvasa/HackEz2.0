@@ -1,0 +1,22 @@
+{
+  "name": "HackEZ",
+  "short_name": "HackEZ",
+  "description": "A platform for HackEZ",
+  "start_url": "https://hackez.onrender.com/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007bff",
+  "icons": [
+      {
+          "src": "https://arqa.com/empresas/wp-content/uploads/sites/2/2008/09/logo-vasa-nuevo-iso-mas-grande.png",
+          "type": "image/png",
+          "sizes": "192x192"
+      },
+      {
+          "src": "https://arqa.com/empresas/wp-content/uploads/sites/2/2008/09/logo-vasa-nuevo-iso-mas-grande.png",
+          "type": "image/png",
+          "sizes": "512x512"
+      }
+  ],
+  "prefer_related_applications": false
+}

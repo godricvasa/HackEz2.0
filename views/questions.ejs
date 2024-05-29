@@ -1,0 +1,20 @@
+<%- include("header.ejs") %>
+<div class="ayo">
+    <p>Welcome to HackEz - a platform empowering anonymous queries and answers. Embrace the freedom to seek knowledge and share insights.</p>
+</div>
+    <main class="container qcon">
+        <!-- Render all questions -->
+        <% questions.forEach(question => { %>
+            <div class="card shadow-sm">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0"><%= question.question %></h5>
+                    <a href="/questions/<%= question._id %>/" class="btn btn-primary btn-sm">Discuss</a>
+                </div>
+            </div>
+            
+            
+        <% }); %>
+
+
+        <%- include("footer.ejs") %>
+        <%- include("pagination.ejs")%>

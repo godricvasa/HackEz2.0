@@ -1,0 +1,27 @@
+<%-include("header.ejs") %>
+   <!-- Comment form -->
+<form action="/questions/<%= question._id %>/answer" method="post" class="mt-5">
+
+    <div class="mb-3 glass ml">
+        <h2>Your answer!</h2>
+        <textarea class="form-control" id="answer" name="answer" rows="3"></textarea>
+    </div>
+    <div class="mr">
+        <button type="submit" class="btn btn-primary">Submit Answer</button>
+    </div>
+   
+</form>
+
+<!-- Render existing answers -->
+<div class="mt-3 glass">
+    <h3 class="mb-3">Existing Answers:</h3>
+    <% question.answers.forEach(answer => { %>
+        <div class="card mb-3 glass2">
+            <div class="card-body">
+                <p class="card-text"><%= answer %></p>
+            </div>
+        </div>
+    <% }); %>
+</div>
+
+    <%- include("footer") %>

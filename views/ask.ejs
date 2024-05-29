@@ -1,0 +1,19 @@
+<%- include("header") %>
+
+<main class="container">
+    <div class="glass">
+        <h1 class="mt-5 mb-4">Enter Your Query</h1>
+
+        <!-- Form for adding a new question -->
+        <form method="post" action="/ask" class="mb-4">
+            
+            <div class="mb-3">
+                <label for="questionText" class="form-label">Question:</label>
+                <input type="text" class="form-control" id="questionText" name="question" placeholder="Enter your question" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Question</button>
+        </form>
+    </div>
+
+
+<%- include("footer") %>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackEZ</title>
+    <link rel="icon" type="image/png" href="https://arqa.com/empresas/wp-content/uploads/sites/2/2008/09/logo-vasa-nuevo-iso-mas-grande.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="manifest" href="manifest.json">
+
+
+    <style>
+        /* Custom styles */
+        body {
+            padding-top: 4.5rem;
+            background-color: #f8f9fa; /* Light gray background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e5e5f7;
+opacity: 0.8;
+background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 10px 10px, linear-gradient(#cfcfcf 0.8px, transparent 0.8px) 0 -0.4px, linear-gradient(90deg, #cfcfcf 0.8px, #e5e5f7 0.8px) -0.4px 0;
+background-size: 20px 20px, 20px 20px, 10px 10px, 10px 10px;
+        }
+        .qcon{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #007bff; /* Blue color for brand */
+        }
+
+        .navbar-toggler {
+            border: 1px solid #007bff; /* Blue border for toggler */
+        }
+
+        .navbar-toggler:focus {
+            outline: none; /* Remove focus outline */
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff; /* White color for links */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Blue button background */
+            border-color: #007bff; /* Blue button border */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            border-color: #0056b3; /* Darker blue border on hover */
+        }
+
+        .btn-primary:focus {
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.5); /* Blue focus shadow */
+        }
+
+        .custom-btn {
+            margin-left: 10px; /* Add margin between navbar items */
+        }
+
+        main {
+            margin-top: 20px; /* Add space between navbar and main content */
+        }
+
+        .question-container {
+            margin-bottom: 20px; /* Add space between each question container */
+        }
+    
+            .glass {
+                background-color: whitesmoke;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 50px;
+}
+.ml{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.mr{
+    display: flex;
+    justify-content: right;
+    margin-right: 20px;
+    
+}
+.ayo{
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f8f9fa; /* Light gray background */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+            font-family: Arial, sans-serif; /* Font family */
+        }
+
+     .ayo p {
+            margin: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-style: oblique;
+            font-size: 18px; /* Larger font size */
+            color: #333; /* Dark gray color */
+        }
+        
+
+   .pagination{
+    display: flex;
+    gap: 5px;
+   }
+    </style>
+    
+</head>
+<body>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered:', registration);
+                    })
+                    .catch(error => {
+                        console.error('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">HackEz</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mr-2 mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a href="https://hackez.onrender.com/ask" class="btn btn-primary custom-btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">Query</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://hackez.onrender.com/" class="btn btn-primary custom-btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
