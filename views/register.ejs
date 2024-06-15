@@ -7,6 +7,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link rel="stylesheet" href="loginstyle.css"> -->
     <style>
 
@@ -286,6 +287,11 @@ input[type=text]::placeholder, input[type=password]::placeholder {
    margin-bottom: 7px;
   
 }
+#nodec{
+color: white;
+    text-decoration: none;
+    padding-left:3px;
+}
 
     </style>
 </head>
@@ -313,7 +319,7 @@ input[type=text]::placeholder, input[type=password]::placeholder {
       <input type="submit" class="fadeIn fourth" value="Register">
     </form>
     
-    <button class="btn btn-primary mb-2">Google signin</button>
+    <button class="btn btn-primary mb-2"><i class="fa-brands fa-google"></i><a id="nodec" href="/auth/google">Google </a></button>
     <!-- Remind Passowrd -->
     <div id="formFooter">
       <a class="underlineHover" href="/login">already have? Login</a>

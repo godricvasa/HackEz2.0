@@ -7,6 +7,9 @@ const port = process.env.PORT || 3000;
 const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
+var GoogleStrategy = require("passport-google-oauth20").Strategy;
+var findOrCreate = require("mongoose-findorcreate");
+
 const app = express();
 
 
@@ -38,9 +41,11 @@ mongoose.connect(uri)
 const UserSchema = new mongoose.Schema({
     username: String,
     password: String,
+   googleId: String	
   });
   //passport-mongoose-local
 UserSchema.plugin(passportLocalMongoose);
+UserSchema.plugin(findOrCreate);
 
 //model
 const User = mongoose.model("User", UserSchema);
@@ -53,9 +58,33 @@ const QAColl = mongoose.model("QAColl", qaSchema);
 
 //create strategy using passport from mongoose
 passport.use(User.createStrategy());
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
+
+const GOOGLE_CLIENT_ID = process.env.CLIENTID;
+const GOOGLE_CLIENT_SECRET = process.env.CLIENTSECRET;
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
+      callbackURL: "http://localhost:3000/auth/google/secrets",
+      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
+    },
+    function (accessToken, refreshToken, profile, cb) {
+      console.log(profile);
+      User.findOrCreate({ googleId: profile.id }, function (err, user) {
+        return cb(err, user);
+      });
+    }
+  )
+);
 
 //for login and all
 app.get("/register",async (req,res)=>{
@@ -72,6 +101,20 @@ app.get('/logout', function(req, res, next){
       res.redirect('/login');
     });
   });
+
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile"] })
+);
+
+app.get(
+  "/auth/google/secrets",
+  passport.authenticate("google", { failureRedirect: "/login" }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    // console.log(profile);
+    res.redirect("/");
+  })
 
 // Route to display list of questions (homepage)
 app.get("/", async function (req, res) {
