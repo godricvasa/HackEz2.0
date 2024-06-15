@@ -51,7 +51,8 @@ UserSchema.plugin(findOrCreate);
 const User = mongoose.model("User", UserSchema);
 const qaSchema = new mongoose.Schema({
     question: String,
-    answers: [{ type: String }]
+    answers: [{ type: String }],
+     createdAt: { type: Date, default: Date.now }
 });
  
 const QAColl = mongoose.model("QAColl", qaSchema);
@@ -122,7 +123,7 @@ app.get("/", async function (req, res) {
         const page = req.query.page?parseInt(req.query.page):1;
     const perpage = 10;
     const skip = (page - 1)*perpage;
-    const questions = await QAColl.find().skip(skip).limit(perpage);
+    const questions = await QAColl.find().sort({ createdAt: -1 }).skip(skip).limit(perpage);
     const totalRecord = await QAColl.countDocuments();
     const totalPages = Math.ceil(totalRecord/perpage)
     res.render("questions", { questions: questions,totalPages,currentPage:page });
