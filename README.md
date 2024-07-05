@@ -1,2 +1,2 @@
 Deployed website 👇
-https://hackez.onrender.com/
+https://hackeze.duckdns.org
